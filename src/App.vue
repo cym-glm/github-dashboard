@@ -1,26 +1,5 @@
 <script setup>
-import { onMounted, onBeforeUnmount } from 'vue'
 import DataScreen from './components/DataScreen.vue'
-
-const handleResize = () => {
-  const scale = Math.min(
-    window.innerWidth / 1920,
-    window.innerHeight / 1080
-  )
-  const screen = document.querySelector('.screen-container')
-  if (screen) {
-    screen.style.transform = `scale(${scale})`
-  }
-}
-
-onMounted(() => {
-  handleResize()
-  window.addEventListener('resize', handleResize)
-})
-
-onBeforeUnmount(() => {
-  window.removeEventListener('resize', handleResize)
-})
 </script>
 
 <template>
@@ -39,23 +18,21 @@ onBeforeUnmount(() => {
 }
 
 body {
-  overflow: hidden;
   background: #0a0e27;
+  overflow-y: hidden;
 }
 
 .app-wrapper {
   width: 100vw;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+  min-width: 1200px;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .screen-container {
-  width: 1920px;
-  height: 1080px;
-  transform-origin: center center;
-  transition: transform 0.3s ease;
+  width: 100vw;
+  height: 100vh;
+  min-width: 1200px;
 }
 </style>

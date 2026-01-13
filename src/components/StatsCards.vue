@@ -7,7 +7,6 @@ const stats = ref([
     value: 0,
     target: 428560000,
     unit: '',
-    icon: '📦',
     color: '#00d4ff'
   },
   {
@@ -15,7 +14,6 @@ const stats = ref([
     value: 0,
     target: 100000000,
     unit: '',
-    icon: '👨‍💻',
     color: '#f4e925'
   },
   {
@@ -23,7 +21,6 @@ const stats = ref([
     value: 0,
     target: 8560000,
     unit: '',
-    icon: '✨',
     color: '#00ff88'
   },
   {
@@ -31,7 +28,6 @@ const stats = ref([
     value: 0,
     target: 15800000000,
     unit: '',
-    icon: '⭐',
     color: '#ff6b9d'
   }
 ])
@@ -85,7 +81,6 @@ onMounted(() => {
       class="stat-card"
       :style="{ '--card-color': stat.color }"
     >
-      <div class="card-icon">{{ stat.icon }}</div>
       <div class="card-content">
         <div class="card-title">{{ stat.title }}</div>
         <div class="card-value">
@@ -102,6 +97,7 @@ onMounted(() => {
   display: flex;
   gap: 15px;
   height: 100%;
+  flex-wrap: nowrap;
 }
 
 .stat-card {
@@ -112,10 +108,13 @@ onMounted(() => {
   padding: 15px 20px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 15px;
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
+  min-width: 0;
+  flex-direction: column;
 }
 
 .stat-card:hover {
@@ -128,26 +127,36 @@ onMounted(() => {
   font-size: 40px;
   flex-shrink: 0;
   z-index: 1;
+  display: none;
 }
 
 .card-content {
   flex: 1;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 0;
 }
 
 .card-title {
-  font-size: 14px;
+  font-size: clamp(10px, 2vw, 14px);
   color: #6dd5ed;
   margin-bottom: 8px;
   letter-spacing: 0.5px;
+  white-space: nowrap;
 }
 
 .card-value {
-  font-size: 28px;
+  font-size: clamp(16px, 4vw, 28px);
   font-weight: bold;
   color: #fff;
   font-family: 'Arial', sans-serif;
   letter-spacing: 1px;
+  white-space: nowrap;
+  max-width: 100%;
 }
 
 .card-glow {
