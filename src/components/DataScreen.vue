@@ -82,7 +82,6 @@ onMounted(() => {
 .data-screen {
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, #0a0e27 0%, #151b3d 100%);
   padding: 20px;
   color: #fff;
   font-family: 'Microsoft YaHei', Arial, sans-serif;
@@ -94,7 +93,6 @@ onMounted(() => {
   align-items: center;
   justify-content: space-between;
   padding: 0 30px;
-  background: linear-gradient(90deg, rgba(20, 30, 70, 0.8) 0%, rgba(10, 20, 50, 0.6) 100%);
   border: 1px solid rgba(0, 180, 255, 0.3);
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 180, 255, 0.2);
